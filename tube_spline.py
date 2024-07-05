@@ -95,6 +95,12 @@ def main():
     tubeActor.GetProperty().SetColor(colors.GetColor3d('Red'))
 
 
+    stl = vtk.vtkSTLWriter()
+    stl.SetInputConnection(tuber.GetOutputPort())
+    stl.SetFileName("vessel.stl")
+    stl.Write()
+
+
     # Setup render window, renderer, and interactor
     renderer = vtkRenderer()
     renderWindow = vtkRenderWindow()
